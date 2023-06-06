@@ -1,0 +1,88 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.container{
+    width: 400px;
+    height: 500px;
+    border: 3px dotted #ccc;
+    border-radius: 15px;
+    padding: 20px;
+    overflow: auto;
+}
+
+h3{
+    margin: 0;
+    padding: 15px 0;
+    border-bottom: 1px dashed #ccc;
+}
+
+small{
+    display: block;
+    color: #aaa;
+    text-align: center;
+    padding: 20px 0;
+    font-style: italic;
+}
+
+.form-group{
+    position: relative;
+}
+
+input[type="text"]{
+    width: 100%;
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid orange;
+    padding: 8px;
+}
+
+label{
+    color: red;
+    font-size: 14px;
+    position: absolute;
+    left: 0;
+    top: -15px;
+    transition: all 1s;
+}
+
+input[type="text"]:placeholder-shown + label{
+    opacity: 0;
+}
+
+.list-group{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.list-group-item{
+    display: block;
+    width: 100%;
+    padding: 8px;
+    background-color: #f4f4f4;
+    font-size: 14px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+    margin-top: 10px;
+    transition: background-color .5s;
+    user-select: none;
+}
+
+.list-group-item:hover{
+    background-color: #ccc;
+}
+
+.list-group-item.done{
+    font-style: italic;
+    text-decoration: line-through;
+    color: #aaa;
+}
