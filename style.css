@@ -1,8 +1,8 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: sans-serif;
     height: 100vh;
     display: grid;
@@ -10,7 +10,7 @@ body{
     overflow: hidden;
 }
 
-.container{
+.container {
     width: 400px;
     height: 500px;
     border: 3px dotted #ccc;
@@ -19,13 +19,13 @@ body{
     overflow: auto;
 }
 
-h3{
+h3 {
     margin: 0;
     padding: 15px 0;
     border-bottom: 1px dashed #ccc;
 }
 
-small{
+small {
     display: block;
     color: #aaa;
     text-align: center;
@@ -33,11 +33,11 @@ small{
     font-style: italic;
 }
 
-.form-group{
+.form-group {
     position: relative;
 }
 
-input[type="text"]{
+input[type="text"] {
     width: 100%;
     border: 0;
     outline: 0;
@@ -45,7 +45,7 @@ input[type="text"]{
     padding: 8px;
 }
 
-label{
+label {
     color: red;
     font-size: 14px;
     position: absolute;
@@ -54,17 +54,17 @@ label{
     transition: all 1s;
 }
 
-input[type="text"]:placeholder-shown + label{
+input[type="text"]:placeholder-shown + label {
     opacity: 0;
 }
 
-.list-group{
+.list-group {
     padding: 0;
     margin: 0;
     list-style-type: none;
 }
 
-.list-group-item{
+.list-group-item {
     display: block;
     width: 100%;
     padding: 8px;
@@ -77,11 +77,11 @@ input[type="text"]:placeholder-shown + label{
     user-select: none;
 }
 
-.list-group-item:hover{
+.list-group-item:hover {
     background-color: #ccc;
 }
 
-.list-group-item.done{
+.list-group-item.done {
     font-style: italic;
     text-decoration: line-through;
     color: #aaa;

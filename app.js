@@ -1,55 +1,65 @@
-const getform = document.querySelector("form"),
-        gettodolist = document.getElementById("todolist"),
-        getul = document.querySelector(".list-group");
+const getForm = document.querySelector("form"),
+  getTodolist = document.getElementById("todolist"),
+  getUl = document.querySelector(".list-group");
 
-gettodolist.focus();
+let getTodos = JSON.parse(localStorage.getItem("todo"));
 
-let gettodos = JSON.parse(localStorage.getItem("todos"));
-
-if(gettodos){
-    gettodos.forEach(gettodo => addnew(gettodo));
+if (getTodos) {
+  getTodos.forEach((getTodo) => {
+    addNew(getTodo);
+  });
 }
 
-getform.addEventListener("submit",(e)=>{
-    e.preventDefault();
-    addnew();
-})
+getForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  addNew();
+});
 
-function addnew(todo){
-    let getval = gettodolist.value;
-    if(todo){
-        getval = todo.text;
-    }
-    if(getval){
-        const newli = document.createElement("li");
-        newli.appendChild(document.createTextNode(getval));
-        newli.classList.add("list-group-item");
-        if(todo && todo.done){
-            newli.classList.add("done");
-        }
-        newli.addEventListener("click",function(){
-            this.classList.toggle("done");
-            uploadlocalstorage();
-        })
-        newli.addEventListener("contextmenu",(e)=>{
-            e.preventDefault();
-            e.target.remove();
-            uploadlocalstorage();
-        })
-        getul.appendChild(newli);
-        uploadlocalstorage();
-        gettodolist.value = "";
-    }
-}
+function addNew(todo) {
+  let getTodo = getTodolist.value;
 
-function uploadlocalstorage(){
-    let lis = [];
-    let getlis = document.querySelectorAll(".list-group-item");
-    getlis.forEach(getli => {
-        lis.push({
-            text: getli.textContent,
-            done: getli.classList.contains("done")
-        });
+  if (todo) {
+    getTodo = todo.text;
+  }
+
+  if (getTodo) {
+    const newli = document.createElement("li");
+    newli.appendChild(document.createTextNode(getTodo));
+    newli.classList.add("list-group-item");
+
+    if (todo && todo.done) {
+      newli.classList.add("done");
+    }
+
+    newli.addEventListener("click", () => {
+      newli.classList.toggle("done");
+      uploadLocalStorage();
     });
-    localStorage.setItem("todos",JSON.stringify(lis));
+
+    newli.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+      e.target.remove();
+      uploadLocalStorage();
+    });
+
+    getUl.appendChild(newli);
+
+    uploadLocalStorage();
+
+    getTodolist.value = "";
+  }
+}
+
+function uploadLocalStorage() {
+  const getListGroupItems = document.querySelectorAll(".list-group-item");
+  let lis = [];
+
+  getListGroupItems.forEach((getListGroupItem) => {
+    lis.push({
+      text: getListGroupItem.textContent,
+      done: getListGroupItem.classList.contains("done"),
+    });
+  });
+
+  localStorage.setItem("todo", JSON.stringify(lis));
 }
